@@ -21,7 +21,6 @@ const Barras = ({ onLogout }) => {
       {/* Barra lateral */}
       <BarraLateral show={showSidebar} onClose={() => setShowSidebar(false)} />
 
-      {/* Contenido principal */}
       <Home onLogout={onLogout} />
     </div>
   );
