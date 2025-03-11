@@ -1,5 +1,6 @@
 import React from "react";
-import { Offcanvas } from "react-bootstrap";
+import { Offcanvas, Nav } from "react-bootstrap";
+import 'bootstrap-icons/font/bootstrap-icons.css';
 
 const BarraLateral = ({ show, onClose }) => {
   return (
@@ -8,10 +9,14 @@ const BarraLateral = ({ show, onClose }) => {
         <Offcanvas.Title>Menú de Opciones</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body style={{ backgroundColor: "#565552" }}>
-        <p>Contenido de la barra lateral...</p>
-        {/* Aquí puedes agregar los links o contenido que desees */}
-      </Offcanvas.Body>
+      <Nav defaultActiveKey="/" className="flex-column">
+          <Nav.Link href="/inventario" style={{ color: "white" }}><i className="bi bi-clipboard-data"/> Inventario</Nav.Link>
+          <Nav.Link href="/busqueda" style={{ color: "white" }}><i className="bi bi-search"/> Búsqueda</Nav.Link>
+          <Nav.Link href="/dashboard" style={{ color: "white" }}><i className="bi bi-bar-chart-fill"/> Dashboard</Nav.Link>
+        </Nav>
+      </Offcanvas.Body> 
     </Offcanvas>
+
   );
 };
 
