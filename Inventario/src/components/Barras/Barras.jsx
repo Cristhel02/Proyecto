@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import BarraSuperior from "./BarraSuperior";
 import BarraLateral from "./BarraLateral";
-import Home from "../../Home";
+import { Outlet } from "react-router-dom";
 
 const Barras = ({ onLogout }) => {
   const [showSidebar, setShowSidebar] = useState(false);
@@ -21,7 +21,8 @@ const Barras = ({ onLogout }) => {
       {/* Barra lateral */}
       <BarraLateral show={showSidebar} onClose={() => setShowSidebar(false)} />
 
-      <Home onLogout={onLogout} />
+      {/* Aquí se renderiza el contenido de las rutas hijas */}
+      <Outlet />
     </div>
   );
 };

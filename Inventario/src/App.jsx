@@ -1,9 +1,11 @@
-// App.jsx
 import React, { useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
 import Home from "./Home";
 import Barras from "./components/Barras/Barras";
+import Inventario from "./components/vistas/inventario";
+import Busqueda from "./components/vistas/busqueda";
+import Dashboard from "./components/vistas/dashboard";
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
@@ -20,12 +22,14 @@ const App = () => {
 
   return (
     <BrowserRouter>
-      {" "}
-      {/* Asegúrate de que BrowserRouter envuelva todos los componentes */}
       <Routes>
         <Route path="/" element={<LoginForm onLogin={handleLogin} />} />
+        {/* Asegúrate de que las rutas de la barra estén dentro del Route principal */}
         <Route element={<Barras onLogout={handleLogout} />}>
           <Route path="/home" element={<Home />} />
+          <Route path="/inventario" element={<Inventario />} />
+          <Route path="/busqueda" element={<Busqueda />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </BrowserRouter>

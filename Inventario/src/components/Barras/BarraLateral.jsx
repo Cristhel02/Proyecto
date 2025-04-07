@@ -1,6 +1,7 @@
 import React from "react";
 import { Offcanvas, Nav } from "react-bootstrap";
-import 'bootstrap-icons/font/bootstrap-icons.css';
+import { Link } from "react-router-dom";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 const BarraLateral = ({ show, onClose }) => {
   return (
@@ -9,14 +10,22 @@ const BarraLateral = ({ show, onClose }) => {
         <Offcanvas.Title>Menú de Opciones</Offcanvas.Title>
       </Offcanvas.Header>
       <Offcanvas.Body style={{ backgroundColor: "#565552" }}>
-      <Nav defaultActiveKey="/" className="flex-column">
-          <Nav.Link href="/inventario" style={{ color: "white" }}><i className="bi bi-clipboard-data"/> Inventario</Nav.Link>
-          <Nav.Link href="/busqueda" style={{ color: "white" }}><i className="bi bi-search"/> Búsqueda</Nav.Link>
-          <Nav.Link href="/dashboard" style={{ color: "white" }}><i className="bi bi-bar-chart-fill"/> Dashboard</Nav.Link>
+        <Nav className="flex-column">
+          <Nav.Link as={Link} to="/home" style={{ color: "white" }}>
+            <i className="bi bi-house-door" /> Inicio
+          </Nav.Link>
+          <Nav.Link as={Link} to="/inventario" style={{ color: "white" }}>
+            <i className="bi bi-clipboard-data" /> Inventario
+          </Nav.Link>
+          <Nav.Link as={Link} to="/busqueda" style={{ color: "white" }}>
+            <i className="bi bi-search" /> Búsqueda
+          </Nav.Link>
+          <Nav.Link as={Link} to="/dashboard" style={{ color: "white" }}>
+            <i className="bi bi-bar-chart-fill" /> Dashboard
+          </Nav.Link>
         </Nav>
-      </Offcanvas.Body> 
+      </Offcanvas.Body>
     </Offcanvas>
-
   );
 };
 
