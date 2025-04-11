@@ -4,6 +4,8 @@ const dotenv = require("dotenv");
 const authRoutes = require("./routes/authRoutes");
 const userRoutes = require("./routes/userRoutes");
 const homeRoutes = require("./routes/homeRoutes");
+const catalogosRoutes = require("./routes/catalogosRoutes");
+const inventarioRoutes = require("./routes/inventarioRoutes");
 
 dotenv.config();
 
@@ -22,6 +24,8 @@ app.use(express.json()); // Para manejar JSON en las peticiones
 app.use("/api/auth", authRoutes);
 app.use("/api", userRoutes);
 app.use("/api", homeRoutes);
+app.use("/api", catalogosRoutes);
+app.use("/api", inventarioRoutes);
 
 // Iniciar servidor
 const port = process.env.PORT || 5000;

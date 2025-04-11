@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginForm from "./components/LoginForm";
 import Home from "./Home";
 import Barras from "./components/Barras/Barras";
+import Categorias from "./components/inventario/categorias";
+import Proveedores from "./components/inventario/proveedores";
 import Inventario from "./components/vistas/inventario";
 import Busqueda from "./components/vistas/busqueda";
 import Dashboard from "./components/vistas/dashboard";
@@ -28,6 +30,8 @@ const App = () => {
         <Route element={<Barras onLogout={handleLogout} />}>
           <Route path="/home" element={<Home />} />
           <Route path="/inventario" element={<Inventario />} />
+          <Route path="/inventario/categorias" element={<Categorias />} />
+          <Route path="/inventario/proveedores" element={<Proveedores />} />
           <Route path="/busqueda" element={<Busqueda />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
