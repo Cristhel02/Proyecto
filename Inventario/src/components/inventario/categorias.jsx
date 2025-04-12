@@ -46,7 +46,7 @@ const Categorias = () => {
     <div className="container" style={{ marginTop: "80px" }}>
       <h1>Catálogo de Categorías</h1>
       <Button className="my-3" onClick={() => handleOpenModal()}>
-        Nueva Categoría
+        <i className="bi bi-plus-lg"></i> Agregar
       </Button>
       <Table striped bordered hover>
         <thead>
@@ -69,14 +69,14 @@ const Categorias = () => {
                   size="sm"
                   onClick={() => handleOpenModal(categoria)}
                 >
-                  Editar
+                  <i className="bi bi-pencil-square "></i>
                 </Button>{" "}
                 <Button
                   variant="danger"
                   size="sm"
                   onClick={() => handleEliminar(categoria.id)}
                 >
-                  Eliminar
+                  <i className="bi bi-trash3-fill"></i>
                 </Button>
               </td>
             </tr>

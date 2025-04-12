@@ -45,8 +45,8 @@ const FormularioCategoria = ({ show, onHide, onSubmit, initialData }) => {
             />
           </Form.Group>
 
-          <Button variant="primary" type="submit">
-            Guardar
+          <Button type="submit" variant="success">
+            <i className="bi bi-floppy "></i> Guardar
           </Button>
         </Form>
       </Modal.Body>

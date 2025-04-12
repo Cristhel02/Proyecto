@@ -46,7 +46,7 @@ const Proveedores = () => {
     <div className="container" style={{ marginTop: "80px" }}>
       <h1>Catálogo de Proveedores</h1>
       <Button className="my-3" onClick={() => handleOpenModal()}>
-        Nuevo Proveedor
+        <i className="bi bi-plus-lg"></i> Agregar
       </Button>
       <Table striped bordered hover>
         <thead>
@@ -75,14 +75,14 @@ const Proveedores = () => {
                   size="sm"
                   onClick={() => handleOpenModal(proveedor)}
                 >
-                  Editar
+                  <i className="bi bi-pencil-square "></i>
                 </Button>{" "}
                 <Button
                   variant="danger"
                   size="sm"
                   onClick={() => handleEliminar(proveedor.id)}
                 >
-                  Eliminar
+                  <i className="bi bi-trash3-fill"></i>
                 </Button>
               </td>
             </tr>
