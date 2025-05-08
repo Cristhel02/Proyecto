@@ -29,6 +29,17 @@ export const maquinasApi = createApi({
     eliminarMaquina: build.mutation({
       query: (id) => ({ url: `maquinas/${id}`, method: "DELETE" }),
     }),
+    buscarMaquinasPorNombre: build.query({
+      query: (maquina_nombre) => ({
+        url: `maquinas-detalle/buscar?maquina_nombre=${encodeURIComponent(
+          maquina_nombre
+        )}`,
+        method: "GET",
+      }),
+    }),
+    obtenerMaquinasDetalle: build.query({
+      query: () => ({ url: `maquinas-detalle`, method: "GET" }),
+    }),
   }),
 });
 
@@ -37,4 +48,6 @@ export const {
   useCrearMaquinaMutation,
   useActualizarMaquinaMutation,
   useEliminarMaquinaMutation,
+  useBuscarMaquinasPorNombreQuery,
+  useObtenerMaquinasDetalleQuery,
 } = maquinasApi;

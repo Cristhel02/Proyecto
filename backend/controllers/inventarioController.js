@@ -95,3 +95,24 @@ exports.deleteMaquina = (req, res) => {
     res.status(200).json({ message: "Máquina eliminada con éxito" });
   });
 };
+
+// Obtener detalle de máquinas desde la vista vw_maquinas_detalle
+exports.getMaquinasDetalle = (req, res) => {
+  db.query("SELECT * FROM vw_maquinas_detalle", (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.status(200).json(results);
+  });
+};
+
+// Buscar máquinas por nombre desde vw_maquinas_detalle
+exports.buscarMaquinasPorNombre = (req, res) => {
+  const { maquina_nombre } = req.query;
+  const query = `
+    SELECT * FROM vw_maquinas_detalle 
+    WHERE maquina_nombre LIKE ?`;
+
+  db.query(query, [`%${maquina_nombre}%`], (err, results) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.status(200).json(results);
+  });
+};
